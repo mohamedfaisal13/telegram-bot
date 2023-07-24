@@ -24,7 +24,7 @@ async function getRandomWikiArticle() {
 
     return data;
   } catch (error) {
-    console.error("Error fetching random Wikipedia article:");
+    console.error("Error fetching random Wikipedia article:", error.message);
     return null;
   }
 }
@@ -48,7 +48,10 @@ function postToTelegramGroup(chatId, article) {
       console.log("Article sent to the Telegram group.");
     })
     .catch((error) => {
-      console.error("Error posting article to the Telegram group:");
+      console.error(
+        "Error posting article to the Telegram group:",
+        error.message
+      );
     });
 }
 
